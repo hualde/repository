@@ -102,15 +102,15 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  while (1)
-  {
     if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_13) == GPIO_PIN_SET)
     {
-        enviarMensaje("Alto\r\n");
+        enviarMensaje("Alto - Activando transistor\r\n");
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET);
     }
     else
     {
-        enviarMensaje("Bajo\r\n");
+        enviarMensaje("Bajo - Desactivando transistor\r\n");
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_RESET);
     }
     
     HAL_Delay(100);
